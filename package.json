@@ -5,7 +5,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@salesforce-ux/design-system": "^2.2.1",
     "express": "latest"
   },
   "author": "logicline GmbH"
