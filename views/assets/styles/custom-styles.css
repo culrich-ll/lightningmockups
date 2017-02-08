@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+}
+.lamp {
+  height: 30px;
+  width: 30px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 25px;
+  border-color: lavender;
+}
+.lampRed {
+  background-color: red;
+  border: none !important;
+}
+.lampYellow {
+  background-color: yellow;
+  border: none !important;
+}
+.lampGreen {
+  background-color: #36b236;
+  border: none !important;
+}

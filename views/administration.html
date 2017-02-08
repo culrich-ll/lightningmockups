@@ -1,0 +1,156 @@
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/styles/salesforce-lightning-design-system.css" rel="stylesheet" type="text/css">
+  <link href="assets/styles/custom-styles.css" rel="stylesheet" type="text/css">
+  </head>
+<body>
+<div class="slds-box">
+  <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+    <div class="slds-page-header">
+      <div class="slds-grid">
+        <div class="slds-col slds-has-flexi-truncate">
+          <div class="slds-media slds-no-space slds-grow">
+            <div class="slds-media__figure">
+              <svg class="slds-icon slds-icon-standard-user" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/icons/standard-sprite/svg/symbols.svg#user"></use>
+              </svg>
+            </div>
+            <div class="slds-media__body">
+              <p class="slds-text-title--caps slds-line-height--reset">UNISERV</p>
+              <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="this should match the Record Title">ADMINISTRATION</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <div class="slds-tabs--default">
+    <ul class="slds-tabs--default__nav" role="tablist">
+      <li class="slds-tabs--default__item slds-active" title="Item One" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Main configuration</a></li>
+      <li class="slds-tabs--default__item" title="Item Two" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Tab two</a></li>
+     </ul>
+    <div id="tab-default-1" class="slds-tabs--default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+      <h3 class="slds-section-title--divider">Uniserv credentials</h3>
+      <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+        <div class="slds-form--horizontal">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="name">Name</label>
+            <div class="slds-form-element__control">
+              <input type="text" id="name" class="slds-input" placeholder="Enter name" />
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="password">Password</label>
+            <div class="slds-form-element__control">
+              <input type="password" id="password" class="slds-input" placeholder="Enter password" />
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="button"></label>
+            <div class="slds-form-element__control">
+              <div class="slds-form-element">
+                <button type="button" id="button" class="slds-button slds-button--brand">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h3 class="slds-section-title--divider">Connection status</h3>
+      <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+        <div class="slds-form--horizontal">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="Red">No connection</label>
+            <div class="slds-form-element__control">
+              <div class="lamp lampRed" id="Red"></div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="Yellow">Credentials incorrect</label>
+            <div class="slds-form-element__control">
+              <div class="lamp lampYellow" id="Yellow"></div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="Green">Connection successful</label>
+            <div class="slds-form-element__control">
+              <div class="lamp lampGreen" id="Green"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h3 class="slds-section-title--divider">Credit status</h3>
+      <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+        <div class="slds-form--horizontal">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="userCredits">User credits</label>
+            <div class="slds-form-element__control">
+              <output id="userCredits">10</output>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="remainingCredits">Remaining credits</label>
+            <div class="slds-form-element__control">
+              <output id="remainingCredits">90</output>
+            </div>
+          </div>
+        </div>
+        <div class="slds-text-body--regular"> </div>
+        <div class="slds-text-body--regular"> </div>
+      </section>
+
+      <h3 class="slds-section-title--divider">Contact support</h3>
+      <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+        <div class="slds-form--horizontal">
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="text-input-01">Subject</label>
+            <div class="slds-form-element__control">
+              <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right slds-picklist__input">
+                <input type="search" id="text-input-01" class="slds-lookup__search-input slds-input" placeholder="Select a subject" aria-owns="option-list-01" role="combobox" aria-activedescendant="" aria-expanded="false" readonly="" />
+                <button class="slds-button slds-input__icon slds-text-color--default" aria-expanded="false" tabindex="-1" title="settings">
+                  <svg class="slds-button__icon slds-button__icon" aria-hidden="true">
+                    <use xlink:href="assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Expand category options</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="textareaSample2">Your message</label>
+            <div class="slds-form-element__control">
+              <textarea id="textareaSample2" class="slds-textarea"></textarea>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <div class="slds-form-element__control">
+              <label class="slds-checkbox" for="agree">
+                <input type="checkbox" name="default" id="agree" />
+                <span class="slds-checkbox--faux"></span>
+                <span class="slds-form-element__label">I agree to the Terms &amp; Service</span>
+              </label>
+            </div>
+          </div>
+          <div class="slds-form-element">
+            <label class="slds-form-element__label" for="button2"></label>
+            <div class="slds-form-element__control">
+              <div class="slds-form-element">
+                <button type="button" id="button2" class="slds-button slds-button--brand">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="tab-default-2" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">
+
+    </div>
+  </div>
+
+
+</div>
+  </div>
+</body></html>

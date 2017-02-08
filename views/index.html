@@ -1,0 +1,42 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/styles/salesforce-lightning-design-system.css" rel="stylesheet" type="text/css">
+	<link href="assets/styles/custom-styles.css" rel="stylesheet" type="text/css">
+	<script>
+		function resizeIframe(obj) {
+			obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="slds-m-top--large slds-text-title--caps slds-text-color--weak">Uniserv mockups</div>
+	<div class="slds-box row" style="border: none;">
+	<div class="col-sm-3 slds-grid slds-grid--vertical slds-navigation-list--vertical">
+		<h2 class="slds-text-title--caps slds-p-around--medium" id="entity-header">Feature</h2>
+		<ul>
+			<li><a href="addresscheck.html" target="childFrame" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Address check</a></li>
+			<li><a href="administration.html" target="childFrame" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">Administration</a></li>
+			<li><a href="javascript:void(0);"  class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">...</a></li>
+			<li><a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">...</a></li>
+			<li><a href="javascript:void(0);" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="entity-header">...</a></li>
+		</ul>
+		<h2 class="slds-text-title--caps slds-p-around--medium" id="folder-header">Links</h2>
+		<ul>
+			<li><a href="https://real-time1.data-quality-service.com/" target="childFrame" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="folder-header">Uniserv testserver</a></li>
+			<li><a href="https://toolchain.logicline.de/jira/browse/UNICV2-12" target="_blank" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="folder-header">Jira</a></li>
+			<li><a href="https://toolchain.logicline.de/confluence/display/UNISERV/Feature+-+Real+Time" target="_blank" class="slds-navigation-list--vertical__action slds-text-link--reset" aria-describedby="folder-header">Confluence</a></li>
+		</ul>
+	</div>
+	<div class="col-sm-9">
+		<iframe class="slds-box"  name="childFrame" style="width: 100%; border: none;" scrolling="no" onload="resizeIframe(this)"></iframe>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
