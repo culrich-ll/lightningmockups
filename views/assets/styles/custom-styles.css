@@ -1,23 +1,33 @@
 .container {
   width: 100%;
 }
-.lamp {
-  height: 30px;
-  width: 30px;
-  border-style: solid;
-  border-width: 0.5px;
-  border-radius: 25px;
-  border-color: lavender;
+
+.slds-popover--tooltip-red {
+  background: #c23934
 }
-.lampRed {
-  background-color: red;
-  border: none !important;
+
+.slds-popover--tooltip-yellow {
+  background: #eeb743;
 }
-.lampYellow {
-  background-color: yellow;
-  border: none !important;
+
+.slds-popover--tooltip-green {
+  background: #39c23e;
 }
-.lampGreen {
-  background-color: #36b236;
-  border: none !important;
+
+.slds-button__icon-error {
+  width: 1.875rem;
+  height: 1.875rem;
+  fill: #c23934;
+}
+
+.slds-button__icon-warning {
+  width: 1.875rem;
+  height: 1.875rem;
+  fill: #eeb743;
+}
+
+.slds-button__icon-success {
+  width: 1.875rem;
+  height: 1.875rem;
+  fill: #39c23e;
 }
