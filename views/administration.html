@@ -5,6 +5,55 @@
   <link href="assets/styles/custom-styles.css" rel="stylesheet" type="text/css">
   </head>
 <body>
+<script type="text/javascript">
+  function attachCheckboxHandlers(value) {
+    // get reference to element containing connectionState checkboxes
+    var el = document.getElementById('connectionState');
+
+    // get reference to input elements in connectionState container element
+    var connectionStates = el.getElementsByTagName('input');
+    var tooltips = document.getElementsByClassName('slds-popover--tooltip');
+    var connectionButtons = document.getElementsByClassName('slds-progress__item');
+
+    // assign changeConnectionState function to onclick property of each checkbox
+    for (var i=0, len=connectionStates.length; i<len; i++) {
+      if ( connectionStates[i].type === 'radio' ) {
+        if(i == value) {
+          tooltips[i].classList.remove('hide');
+          connectionButtons[i].classList.remove('slds-is-active');
+          connectionButtons[i].classList.add('slds-is-completed');
+          var svg = connectionButtons[i].childNodes[1].getElementsByTagName('svg');
+          svg[0].classList.remove('hide');
+          // connectionButtons[i].childNodes[1]
+        } else {
+          connectionStates[i].checked = false;
+          tooltips[i].classList.add('hide');
+
+            connectionButtons[i].classList.remove('slds-is-completed');
+            connectionButtons[i].classList.add('slds-is-active');
+            var svg = connectionButtons[i].childNodes[1].getElementsByTagName('svg');
+            svg[0].classList.add('hide');
+
+        }
+      }
+    }
+    // set progressbar 
+    var progessBar = document.getElementsByClassName('slds-progress-bar__value');
+    switch (value)
+      {
+        case "0":
+          progessBar[0].setAttribute('style', 'width: 0%');
+          break;
+        case "1":
+          progessBar[0].setAttribute('style', 'width: 50%');
+          break;
+        case "2":
+          progessBar[0].setAttribute('style', 'width: 100%');
+          break;
+      }
+  }
+
+</script>
 <div class="slds-box">
   <section class="slds-m-bottom--xx-large slds-p-top--x-large">
     <div class="slds-page-header">
@@ -29,7 +78,7 @@
   <div class="slds-tabs--default">
     <ul class="slds-tabs--default__nav" role="tablist">
       <li class="slds-tabs--default__item slds-active" title="Item One" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Main configuration</a></li>
-      <li class="slds-tabs--default__item" title="Item Two" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Field mapping</a></li>
+      <li class="slds-tabs--default__item" title="Item Two" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Fie</a></li>
      </ul>
     <div id="tab-default-1" class="slds-tabs--default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
       <h3 class="slds-section-title--divider">Uniserv credentials</h3>
@@ -60,11 +109,38 @@
 
       <h3 class="slds-section-title--divider">Connection status</h3>
       <section class="slds-m-bottom--xx-large slds-p-top--x-large">
+        <fieldset class="slds-form-element">
+          <legend class="slds-form-element__legend slds-form-element__label">Connection test - mock:</legend>
+          <div class="slds-form-element__control" id="connectionState">
+            <span class="slds-radio">
+              <input type="radio" id="noConnection" value="0" checked="" onclick="attachCheckboxHandlers(this.value)"/>
+              <label class="slds-radio__label" for="noConnection">
+                <span class="slds-radio--faux"></span>
+                <span class="slds-form-element__label">No connection</span>
+              </label>
+            </span>
+            <span class="slds-radio">
+              <input type="radio" id="wrongCredentials" value="1" onclick="attachCheckboxHandlers(this.value)"/>
+              <label class="slds-radio__label" for="wrongCredentials">
+                <span class="slds-radio--faux"></span>
+                <span class="slds-form-element__label">Wrong redentials</span>
+              </label>
+            </span>
+            <span class="slds-radio">
+              <input type="radio" id="connection" value="2" onclick="attachCheckboxHandlers(this.value)"/>
+              <label class="slds-radio__label" for="connection">
+                <span class="slds-radio--faux"></span>
+                <span class="slds-form-element__label">Connection successful</span>
+              </label>
+            </span>
+          </div>
+        </fieldset>
+        <div class="slds-m-vertical--xx-large slds-border--top"></div>
         <div class="slds-grid slds-grid--align-spread" style="height: 100px;">
           <div class="slds-progress slds-progress--shade slds-order--2">
             <ol class="slds-progress__list">
               <li class="slds-progress__item slds-is-completed">
-                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="step-1-tooltip" title="settings">
+                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="noConnection-tooltip" title="settings">
                   <svg class="slds-button__icon-error" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
                   </svg>
@@ -72,19 +148,19 @@
                 </button>
               </li>
               <li class="slds-progress__item slds-is-completed">
-                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="step-2-tooltip" title="settings">
+                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="wrongCredentials-tooltip" title="settings">
                   <svg class="slds-button__icon-warning" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
                   </svg>
-                  <span class="slds-assistive-text">Step 1 - Completed</span>
+                  <span class="slds-assistive-text">Step 2 - Completed</span>
                 </button>
               </li>
               <li class="slds-progress__item slds-is-completed">
-                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="step-3-tooltip" title="settings">
+                <button class="slds-button slds-button--icon slds-progress__marker slds-progress__marker--icon" aria-describedby="connection-tooltip" title="settings">
                   <svg class="slds-button__icon-success" aria-hidden="true">
                     <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#success"></use>
                   </svg>
-                  <span class="slds-assistive-text">Step 1 - Completed</span>
+                  <span class="slds-assistive-text">Step 3 - Completed</span>
                 </button>
               </li>
             </ol>
@@ -93,13 +169,13 @@
                 <span class="slds-assistive-text">Progress: 50%</span>
               </span>
             </div>
-            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-red slds-nubbin--bottom" role="tooltip" id="step-1-tooltip" style="position:absolute;top:-7px;left:calc(0% + 7px);transform:translateX(-50%);">
+            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-red slds-nubbin--bottom" role="tooltip" id="noConnection-tooltip" style="position:absolute;top:-7px;left:calc(0% + 7px);transform:translateX(-50%);">
               <div class="slds-popover__body">No connection</div>
             </div>
-            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-yellow slds-nubbin--bottom" role="tooltip" id="step-2-tooltip" style="position:absolute;top:-7px;left:calc(50% + 7px);transform:translateX(-50%);">
+            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-yellow slds-nubbin--bottom" role="tooltip" id="wrongCredentials-tooltip" style="position:absolute;top:-7px;left:calc(50% + 7px);transform:translateX(-50%);">
               <div class="slds-popover__body">Verify credentials</div>
             </div>
-            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-green slds-nubbin--bottom" role="tooltip" id="step-3-tooltip" style="position:absolute;top:-7px;left:calc(100% - 7px);transform:translateX(-50%);">
+            <div class="slds-popover slds-popover--tooltip slds-popover--tooltip-green slds-nubbin--bottom" role="tooltip" id="connection-tooltip" style="position:absolute;top:-7px;left:calc(100% - 7px);transform:translateX(-50%);">
               <div class="slds-popover__body">Successful</div>
             </div>
           </div>

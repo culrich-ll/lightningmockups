@@ -31,3 +31,7 @@
   height: 1.875rem;
   fill: #39c23e;
 }
+
+.hide {
+  display: none;
+}
