@@ -20,6 +20,10 @@ router.get("/addresscheck",function(req,res){
   res.sendFile(path + "addresscheck.html");
 });
 
+router.get("/fieldmapping",function(req,res){
+  res.sendFile(path + "fieldmapping.html");
+});
+
 app.use(express.static(path));
 
 app.use("/",router);
